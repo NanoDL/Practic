@@ -4,7 +4,6 @@ session_start();
 $_SESSION['date'] = date('d.m.Y');                           //переменные
 $_SESSION['operator'] = 'ИП Улямаев Руслан Ильдарович';
 $_SESSION['domain'] = 'https://'.$_SERVER['HTTP_HOST'];
-//$consent = $domain.'/_docs/consent';
 
 echo $_SESSION['date'];
 
