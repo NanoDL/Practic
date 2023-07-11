@@ -11,15 +11,16 @@ $textFile ='text.php';
 $modifiedHtml =' ';
 
 $arrPath = [
-    1 => './agreeement',
+    1 => './agreement',
     2 => './consent',
     3 => './privacy',
     4 => './offer',
-    5 => './cookie'
+    5 => './cookie',
+    6 => './test'
 ];
 
 #тут можно выбрать один из желаемых путей
-$generatedPath = $arrPath[1]; 
+$generatedPath = $arrPath[6]; 
 
 
 #Данные вводимые пользователем
@@ -42,7 +43,7 @@ $templateHtml = file_get_contents($htmlFile);
 $insert_position = strpos($templateHtml, "</body>"); 
 
 
-//проверка есть ли место куда вставить текст
+#проверка есть ли место куда вставить текст
 if ($insert_position !== false) {
     $modifiedHtml = substr_replace($templateHtml, $text, $insert_position);
     @mkdir($generatedPath);
