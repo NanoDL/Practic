@@ -5,14 +5,9 @@
    <body>
     
    <?php
-session_start();
 
-$date = $_SESSION['date'];
-$operator = $_SESSION['operator'];
-$domain = $_SESSION['domain'];
-$consent = $_SESSION['consent'];
-$privacy = $_SESSION['privacy'];
-$agreement = $_SESSION['agreement'];
+
+include '../data.php';
 
 $text = "<h3>Согласие на обработку персональных данных</h3>
 <p>Физическое или юридическое лицо, заполняя анкету для участия в конкурсе &laquo;Мэтр психологии&raquo; на веб-сайте <b>{$domain}</b> через форму «Анкета», действуя свободно, по своей воле и в своём интересе, а также подтверждая свою дееспособность, предоставляет своё согласие на обработку персональных данных (далее – Согласие)

@@ -5,14 +5,9 @@
    <body>
     
    <?php
-session_start();
 
-$date = $_SESSION['date'];
-$operator = $_SESSION['operator'];
-$domain = $_SESSION['domain'];
-$consent = $_SESSION['consent'];
-$privacy = $_SESSION['privacy'];
-$agreement = $_SESSION['agreement'];
+
+include '../data.php';
 
 $text = "	<section class=\"section\">
 <div class=\"box content has-text-justified\">

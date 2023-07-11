@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 #файл html шаблона
 $htmlFile = 'templateHtml.php';
@@ -22,14 +21,6 @@ $arrPath = [
 #тут можно выбрать один из желаемых путей
 $generatedPath = $arrPath[6]; 
 
-
-#Данные вводимые пользователем
-$_SESSION['date'] = date('d.m.Y');                         
-$_SESSION['operator'] = 'ИП Улямаев Руслан Ильдарович';
-$_SESSION['domain'] = 'https://'.$_SERVER['HTTP_HOST'];
-$_SESSION['consent'] = $_SESSION['domain'] . '/consent';
-$_SESSION['privacy'] = $_SESSION['domain'] . '/privacy';
-$_SESSION['agreement'] = $_SESSION['domain'] . '/agreement';
 
 
 #получение текста
