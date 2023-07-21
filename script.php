@@ -30,13 +30,9 @@ $text = file_get_contents($textFile);
 $templateHtml = file_get_contents($htmlFile);        
 
 
-#поиск позиции для вставки текста
-$insert_position = strpos($templateHtml, "</body>"); 
-
-
 #проверка есть ли место куда вставить текст
 if ($insert_position !== false) {
-    $modifiedHtml = substr_replace($templateHtml, $text, $insert_position);
+    $modifiedHtml = str_replace("</body>", $text . "</body>",$templateHtml);
     @mkdir($generatedPath);
     file_put_contents($generatedPath . '/index.php', $modifiedHtml );  //генерация готового файла 
 
