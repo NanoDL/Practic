@@ -28,7 +28,7 @@ $generatedPath = $arrPath[6];
 #получение текста
 $text = "";
 
-$textFile = fopen("text3.txt", "r");
+$textFile = fopen("text.php", "r");
 
 //определяет находимся ли мы в открытом списке (отсутствует </ul>)
 $Li=false;
