@@ -1,7 +1,7 @@
 # Practic
 Генератор HTML страниц на PHP
 
-**script.php** - файл со скриптом\n
+**script.php** - файл со скриптом
 
 **text.php** - файл с текстом
 
