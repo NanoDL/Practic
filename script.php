@@ -59,7 +59,8 @@ while(!feof($textFile)){
 
 
     #заголовок
-    if ($prevLine === "\r\n" ) {
+    if ($prevLine === "\r\n" && $line !== "\r\n") {
+        $prevLine = $line;
         $line = "<h4>" . $line . "</h4>";
         //если есть <ul> то закрываем
        if($Li){
@@ -70,16 +71,34 @@ while(!feof($textFile)){
     #Список
     elseif (substr($line, 0, 1) === "\t"  /*$prevLine !== "\r\n"*/ && $line !== "\r\n" )
     {
-
+        $prevLine = $line;
         $line = "<li>" . $line . "</li>";
         if (!$Li){
             $line = "<ul>" . $line;
             $Li=true;
         }
     }
-    #Обычные строки
-    elseif ($line !== "\r\n" ) #если строка не пустая
+    elseif ($line === "\r\n")
+    {
+        $prevLine = $line;
+        $line = $line . "<br>";
+        if($Li){
+            $line = "</ul>" . $line;
+            $Li=false;
+        }
+    }
+    /*#Обычные строки
+    elseif ($line !== "\r\n" || $line !== "" || $line !== " ") #если строка не пустая
     {                                          #добавить переменную для измененной строки
+        $line = "<p>" . $line . "</p>";
+
+        if($Li){
+            $line = "</ul>" . $line;
+            $Li=false;
+        }
+    }*/
+    else {
+        $prevLine = $line;
         $line = "<p>" . $line . "</p>";
 
         if($Li){
@@ -93,7 +112,7 @@ while(!feof($textFile)){
     $line = preg_replace($pattMono, $replacementMono ,$line);
     echo $line;
     $text = "{$text}\r\n{$line}";
-    $prevLine = $line;
+    //$prevLine = $line;
 
     
 }
